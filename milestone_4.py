@@ -30,9 +30,9 @@ class Hangman:
 
     Methods:
     -------
-    check_letter(letter)
+    check_guess(letter)
         Checks if the letter is in the word.
-    ask_letter()
+    ask_for_input()
         Asks the user for a letter.
     '''
     def __init__(self, word_list, num_lives=5):
@@ -46,14 +46,37 @@ class Hangman:
         # randomly select a word from word_list.
         word = random.choice(word_list)
 
-        # initialise as list of '_'s because no guesses yet.
-        word_guessed = ['_'*len(self.word)]
+        # initialise as list of ''s because no guesses yet.
+        word_guessed = [''*len(word)]
 
         # initialise as unique letters in word because no guesses yet.
-        num_letters = len(set(self.word))
+        num_letters = len(set(word))
 
         # make these three variables class attributes.
         self.word = word
         self.word_guessed = word_guessed
         self.num_letters = num_letters
-        
+
+    def check_guess(self,guess):
+        guess = guess.lower()
+        if guess in self.word:
+            print(f'Good guess! {guess} is in the word.')
+        else:
+            print(f'Sorry, {guess} is not in the word. Try again.')
+    
+    def ask_for_input(self):
+        while True:
+            print('Please input a letter: ')
+            guess = input()
+            if not (guess.isalpha() and len(guess)) == 1:
+                print(f'Invalid letter. Please, enter a single alphabetical character.')
+            elif guess in self.list_of_guesses:
+                print('You already tried that letter!')
+            else:
+                self.check_guess(guess)
+                self.list_of_guesses.append(guess)
+
+if __name__ == '__main__':
+    word_list = ['apple', 'banana', 'orange', 'pear', 'strawberry', 'watermelon']
+    hangman = Hangman(word_list)
+    hangman.ask_for_input()
