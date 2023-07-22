@@ -15,3 +15,7 @@ This is an implementation of the Hangman game, where the computer thinks of a wo
 - one function asks and validates input letter from user.
 - second function checks whether the letter is part of the randomly selected fruit.
 
+## Milestone 4
+
+- created the Hangman class.
+- defined the init method.
