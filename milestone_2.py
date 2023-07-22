@@ -3,11 +3,7 @@ import string
 
 word_list = ['apple', 'pear', 'orange', 'banana', 'melon']
 
-print(word_list)
-
 word = random.choice(word_list)
-
-print(word)
 
 input_accepted = False
 while not input_accepted:
@@ -18,3 +14,4 @@ while not input_accepted:
         input_accepted = True
     else:
         print(f'Oops! That is not a valid input. You guessed {guess}.')
+

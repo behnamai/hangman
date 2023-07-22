@@ -8,3 +8,10 @@ This is an implementation of the Hangman game, where the computer thinks of a wo
 - created a file milestone_2.py
 - used the random library to select a word from a word list.
 - asked for user input and confirmed it's a letter.
+
+## Milestone 3
+
+- separated code into functions for clarity.
+- one function asks and validates input letter from user.
+- second function checks whether the letter is part of the randomly selected fruit.
+
