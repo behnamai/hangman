@@ -47,7 +47,7 @@ class Hangman:
         word = random.choice(word_list)
 
         # initialise as list of ''s because no guesses yet.
-        word_guessed = [''*len(word)]
+        word_guessed = ['_'*len(word)]
 
         # initialise as unique letters in word because no guesses yet.
         num_letters = len(set(word))
@@ -61,6 +61,10 @@ class Hangman:
         guess = guess.lower()
         if guess in self.word:
             print(f'Good guess! {guess} is in the word.')
+            for i, letter in enumerate(self.word):
+                if letter == guess:
+                    self.word_guessed[i] = letter
+            self.num_letters -= 1
         else:
             print(f'Sorry, {guess} is not in the word. Try again.')
     
