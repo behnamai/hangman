@@ -47,7 +47,7 @@ class Hangman:
         word = random.choice(word_list)
 
         # initialise as list of ''s because no guesses yet.
-        word_guessed = ['_'*len(word)]
+        word_guessed = ['_' for i in range(len(word))]
 
         # initialise as unique letters in word because no guesses yet.
         num_letters = len(set(word))
@@ -68,31 +68,34 @@ class Hangman:
         else:
             print(f'Sorry, {guess} is not in the word. Try again.')
             self.num_lives -= 1
-            print(f'You have {num_lives} lives left.')
+            print(f'You have {self.num_lives} lives left.')
             
     
     def ask_for_input(self):
-        while True:
-            print('Please input a letter: ')
-            guess = input()
-            if not (guess.isalpha() and len(guess)) == 1:
-                print(f'Invalid letter. Please, enter a single alphabetical character.')
-            elif guess in self.list_of_guesses:
-                print('You already tried that letter!')
-            else:
-                self.check_guess(guess)
-                self.list_of_guesses.append(guess)
+        print('Please input a letter: ')
+        guess = input()
+        if not (guess.isalpha() and len(guess)) == 1:
+            print(f'Invalid letter. Please, enter a single alphabetical character.')
+        elif guess in self.list_of_guesses:
+            print('You already tried that letter!')
+        else:
+            self.check_guess(guess)
+            self.list_of_guesses.append(guess)
 
 def play_game(word_list):
     num_lives = 5
     game = Hangman(word_list=word_list, num_lives=num_lives)
     while True:
+        print(game.__dict__)
+
         if game.num_lives == 0:
             print('You lost!')
+            break
         elif game.num_letters > 0:
             game.ask_for_input()
         else:
             print('Congratulations. You won the game!')
+            break
 
 
 if __name__ == '__main__':

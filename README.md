@@ -21,3 +21,10 @@ This is an implementation of the Hangman game, where the computer thinks of a wo
 - defined the init method.
 - added the functions ask_for_input and check_guess to the Hangman class
 - adjusted the check_guess method to update the instance attributes for correct and incorrect guesses
+
+## Milestone 5
+
+- created a new file to wrap things up.
+- added a function play_game that runs the program
+- took the while loop out of ask_for_input() and put it in play_game()
+- checked everything works.

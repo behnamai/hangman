@@ -83,6 +83,9 @@ class Hangman:
                 self.check_guess(guess)
                 self.list_of_guesses.append(guess)
 
+
+
+
 if __name__ == '__main__':
     word_list = ['apple', 'banana', 'orange', 'pear', 'strawberry', 'watermelon']
     hangman = Hangman(word_list)
